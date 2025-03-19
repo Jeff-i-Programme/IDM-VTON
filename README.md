@@ -99,6 +99,22 @@ Download pre-trained ip-adapter for sdxl(IP-Adapter/sdxl_models/ip-adapter-plus_
 git clone https://huggingface.co/h94/IP-Adapter
 ```
 
+Download stable-diffusion-xl-1.0-inpainting-0.1 on Hugging Face Hub.
+
+```
+python - <<EOF
+from huggingface_hub import snapshot_download
+
+snapshot_download(
+    repo_id="diffusers/stable-diffusion-xl-1.0-inpainting-0.1",
+    local_dir="/mnt/afs/huangtao3/wjf/VTON/models--diffusers--stable-diffusion-xl-1.0-inpainting-0.1",
+    local_dir_use_symlinks=False,
+    resume_download=False,  
+    allow_patterns=["*.safetensors", "*.json", "*.txt"]
+)
+EOF
+```
+
 Move ip-adapter to ckpt/ip_adapter, and image encoder to ckpt/image_encoder.
 
 Start training using python file with arguments,
